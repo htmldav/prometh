@@ -39,7 +39,7 @@ scrape_configs:
   - job_name: 'slave1'
     scrape_interval: 5s
     static_configs:
-         - targets: ['54.234.248.227:9100']
+         - targets: ['54.173.173.201:9100']
 
 
 
