@@ -16,3 +16,21 @@ receivers:
     auth_username: 'aldav99@gmail.com'
     auth_identity: 'aldav99@gmail.com'
     auth_password: 'password'
+
+
+global:
+  resolve_timeout: 1m
+
+route:
+  receiver: 'gmail-notifications'
+
+receivers:
+- name: 'gmail-notifications'
+  email_configs:
+  - to: aldav99@gmail.com
+    from: aldav99@gmail.com
+    smarthost: smtp.gmail.com:587
+    auth_username: aldav99@gmail.com
+    auth_identity: aldav99@gmail.com
+    auth_password: pass
+    send_resolved: true
