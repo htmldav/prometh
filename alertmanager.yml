@@ -34,3 +34,17 @@ receivers:
     auth_identity: aldav99@gmail.com
     auth_password: pass
     send_resolved: true
+
+global:
+  smtp_from: aldav99@yandex.ru
+
+route:
+  group_by: ['alertname', 'instance', 'severity']
+  group_wait: 10s
+  group_interval: 10s
+  repeat_interval: 1h
+  receiver: 'web.hook'
+  routes:
+    - receiver: send_email
+      match:
+        alertname: InstanceDown
