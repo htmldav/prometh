@@ -32,7 +32,7 @@ receivers:
     smarthost: smtp.gmail.com:587
     auth_username: aldav99@gmail.com
     auth_identity: aldav99@gmail.com
-    auth_password: pass
+    auth_password: xxx
     send_resolved: true
 
 global:
