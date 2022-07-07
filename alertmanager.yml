@@ -1,24 +1,4 @@
 global:
-  resolve_timeout: 3m
-
-route:
-  group_by: ['slave1']
-  group_wait: 10s
-  group_interval: 10s
-  repeat_interval: 24h
-  receiver: 'email'
-receivers:
-- name: 'email'
-  email_configs:
-  - to: 'aldav@gkb4.ru'
-    from: 'aldav99@gmail.com'
-    smarthost: smtp.gmail.com:587
-    auth_username: 'aldav99@gmail.com'
-    auth_identity: 'aldav99@gmail.com'
-    auth_password: 'password'
-
-
-global:
   resolve_timeout: 1m
 
 route:
@@ -34,50 +14,3 @@ receivers:
     auth_identity: aldav99@gmail.com
     auth_password: xxx
     send_resolved: true
-
-global:
-  smtp_from: aldav99@yandex.ru
-
-route:
-  group_by: ['alertname', 'instance', 'severity']
-  group_wait: 10s
-  group_interval: 10s
-  repeat_interval: 1h
-  routes:
-    - receiver: send_email
-      match:
-        alertname: InstanceDown
-
-receivers:
-- name: send_email
-  email_configs:
-  - to: aldav99@gmail.com
-    send_resolved: true
-    smarthost: smtp.yandex.ru:587
-    auth_username: aldav99@yandex.ru
-    auth_password: XXXXXXXXX
-    require_tls: true
-
-global:
-  smtp_from: aldav99@yandex.ru
-
-route:
-  group_by: ['alertname', 'instance', 'severity']
-  group_wait: 10s
-  group_interval: 10s
-  repeat_interval: 1h
-  receiver: send_email
-  routes:
-    - receiver: send_email
-      match:
-        alertname: InstanceDown
-
-receivers:
-- name: send_email
-  email_configs:
-  - to: aldav99@gmail.com
-    send_resolved: true
-    smarthost: smtp.yandex.ru:587
-    auth_username: aldav99@yandex.ru
-    auth_password: XXXXXXX
-    require_tls: true
