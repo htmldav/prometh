@@ -48,3 +48,13 @@ route:
     - receiver: send_email
       match:
         alertname: InstanceDown
+
+receivers:
+- name: send_email
+  email_configs:
+  - to: aldav99@gmail.com
+    send_resolved: true
+    smarthost: smtp.yandex.ru:587
+    auth_username: aldav99@yandex.ru
+    auth_password: XXXXXXXXX
+    require_tls: true
