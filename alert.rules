@@ -3,7 +3,7 @@ groups:
   rules:
 
   # Alert for any instance that is unreachable for >1 minutes.
-  - alert: service_down
+  - alert: InstanceDown
     expr: up == 0
     for: 1m
     labels:
